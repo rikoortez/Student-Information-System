@@ -1,0 +1,18 @@
+$kind: http-request
+name: http://localhost:3000/api/students/1
+description: ""
+url: http://localhost:3000/api/students/1
+method: DELETE
+body:
+  type: json
+  content: |
+    {
+        "studentNumber": "2026-0001",
+        "firstName": "Enrico Miguel",
+        "lastName": "Orteza",
+        "birthDate": "2006-01-24",
+        "course": "BSIT",
+        "yearLevel": 4,
+        "status": "active"
+    }
+order: 1000
