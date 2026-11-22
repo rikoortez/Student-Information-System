@@ -1,0 +1,8 @@
+$kind: http-request
+name: http://localhost:3000/api/students/search
+description: ""
+url: http://localhost:3000/api/students/search?q=Enrico
+method: GET
+queryParams:
+  q: Enrico
+order: 1000

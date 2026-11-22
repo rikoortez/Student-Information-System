@@ -1,0 +1,18 @@
+$kind: http-request
+name: http://localhost:3000/api/students
+description: ""
+url: http://localhost:3000/api/students
+method: POST
+body:
+  type: json
+  content: |
+    {
+        "studentNumber": "2026-0001",
+        "firstName": "Enrico Miguel",
+        "lastName": "Orteza",
+        "birthDate": "2006-01-24",
+        "course": "BSCS",
+        "yearLevel": 3,
+        "status": "active"
+    }
+order: 1000
