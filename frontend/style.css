@@ -1,0 +1,46 @@
+
+/* general */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+/* fill-out form */
+#studentForm {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    max-width: 350px;
+}
+
+/* input fields and dropdown */
+#studentForm input,
+#studentForm select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+/* form buttons */
+#studentForm button {
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+/* search section */
+#searchInput {
+    padding: 8px;
+}
+
+/* student table */
+table {
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th,
+td {
+    padding: 8px;
+    text-align: left;
+}
