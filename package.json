@@ -1,0 +1,7 @@
+{
+  "name": "student-information-system",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": { "test-db": "node test-db.js" },
+  "dependencies": { "dotenv": "^16.4.5", "mysql2": "^3.11.0" }
+}
