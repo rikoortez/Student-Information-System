@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Information System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Student Information System</h1>
+
+    <!-- student form -->
+    <h2>Student Records</h2>
+
+    <form id="studentForm">
+
+        <input type="hidden" id="studentId">
+
+        <label for="studentNumber">Student Number:</label>
+        <input type="text" id="studentNumber" required>
+
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" required>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" required>
+
+        <label for="birthDate">Birth Date:</label>
+        <input type="date" id="birthDate" required>
+
+        <label for="course">Course:</label>
+        <input type="text" id="course" required>
+
+        <label for="yearLevel">Year Level:</label>
+        <input type="number" id="yearLevel" min="1" max="4" required>
+
+        <label for="status">Status:</label>
+        <select id="status" required>
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
+        </select>
+
+        <button type="submit" id="submitButton">Add Student</button>
+        <button type="button" id="cancelButton">Cancel</button>
+
+    </form>
+
+    <hr>
+
+    <!-- search student -->
+    <h2>Search Students</h2>
+
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Search by student number or name"
+    >
+
+    <button type="button" id="searchButton">Search</button>
+    <button type="button" id="resetButton">Show All</button>
+
+    <!-- record table -->
+    <h2>Student List</h2>
+
+    <table border="1">
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Student Number</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Birth Date</th>
+                <th>Course</th>
+                <th>Year Level</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody id="studentTableBody">
+        </tbody>
+
+    </table>
+
+    <!-- js script -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
