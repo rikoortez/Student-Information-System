@@ -1,97 +1,120 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Student Information System</title>
-
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>Student Records | LarSo</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="LarSo home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" focusable="false">
+            <g stroke="#ffe9a6" stroke-linecap="round" stroke-width="2.5">
+              <path d="M20 3v5M20 32v5M3 20h5M32 20h5M8 8l3.5 3.5M28.5 28.5 32 32M32 8l-3.5 3.5M11.5 28.5 8 32" />
+            </g>
+            <circle cx="20" cy="20" r="8" fill="#ffd66f" />
+            <circle cx="17" cy="17" r="2.5" fill="#fff1bd" opacity=".9" />
+          </svg>
+        </span>
+        <span>Lar<span class="brand-light">So</span></span>
+      </a>
+      <p class="nav-caption">WORKSPACE</p>
+      <a class="nav-item active" href="#dashboard"><span aria-hidden="true">▦</span> Dashboard</a>
+      <a class="nav-item" href="#add-student"><span aria-hidden="true">＋</span> Add student</a>
+      <a class="nav-item" href="#records"><span aria-hidden="true">▤</span> Student list</a>
+      <div class="sidebar-note">
+        <span class="note-icon" aria-hidden="true">✦</span>
+        <p><strong>Keep records up to date</strong><br>Manage student details from one place.</p>
+      </div>
+      <div class="sidebar-footer">Student Information System</div>
+    </aside>
 
-    <h1>Student Information System</h1>
+    <main id="top" class="main-content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">STUDENT MANAGEMENT</p>
+          <h1>Student records</h1>
+          <p class="subheading">View and manage your registered students.</p>
+        </div>
+        <div class="topbar-badge"><span class="online-dot"></span> Records workspace</div>
+      </header>
 
-    <!-- student form -->
-    <h2>Student Records</h2>
+      <section id="dashboard" class="stats-grid" aria-label="Student summary">
+        <article class="stat-card">
+          <div class="stat-icon violet" aria-hidden="true">♧</div>
+          <div><p>Total students</p><strong id="totalStudents">—</strong></div>
+          <span class="stat-hint">Registered</span>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon green" aria-hidden="true">✓</div>
+          <div><p>Active</p><strong id="activeStudents">—</strong></div>
+          <span class="stat-hint">Currently enrolled</span>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon amber" aria-hidden="true">◷</div>
+          <div><p>Inactive</p><strong id="inactiveStudents">—</strong></div>
+          <span class="stat-hint">Not currently active</span>
+        </article>
+      </section>
 
-    <form id="studentForm">
+      <section id="add-student" class="content-card form-card" aria-labelledby="formTitle">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">STUDENT DETAILS</p>
+            <h2 id="formTitle">Add a student</h2>
+          </div>
+          <span class="required-note">* Required fields</span>
+        </div>
+        <p id="formMessage" class="message" role="status" aria-live="polite"></p>
+        <form id="studentForm">
+          <input type="hidden" id="studentId">
+          <div class="form-grid">
+            <label>Student number <span>*</span><input id="studentNumber" name="studentNumber" placeholder="e.g. 2026-0001" required></label>
+            <label>Course <span>*</span><input id="course" name="course" placeholder="e.g. BSCS" required></label>
+            <label>First name <span>*</span><input id="firstName" name="firstName" placeholder="Enter first name" required></label>
+            <label>Last name <span>*</span><input id="lastName" name="lastName" placeholder="Enter last name" required></label>
+            <label>Birth date <span>*</span><input type="date" id="birthDate" name="birthDate" required></label>
+            <label>Year level <span>*</span><select id="yearLevel" name="yearLevel" required><option value="">Select year level</option><option value="1">1st year</option><option value="2">2nd year</option><option value="3">3rd year</option><option value="4">4th year</option></select></label>
+            <label>Status <span>*</span><select id="status" name="status" required><option value="active">Active</option><option value="inactive">Inactive</option></select></label>
+          </div>
+          <div class="form-actions">
+            <button class="button button-primary" type="submit" id="submitButton">Add student <span aria-hidden="true">＋</span></button>
+            <button class="button button-secondary hidden" type="button" id="cancelButton">Cancel edit</button>
+          </div>
+        </form>
+      </section>
 
-        <input type="hidden" id="studentId">
-
-        <label for="studentNumber">Student Number:</label>
-        <input type="text" id="studentNumber" required>
-
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" required>
-
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" required>
-
-        <label for="birthDate">Birth Date:</label>
-        <input type="date" id="birthDate" required>
-
-        <label for="course">Course:</label>
-        <input type="text" id="course" required>
-
-        <label for="yearLevel">Year Level:</label>
-        <input type="number" id="yearLevel" min="1" max="4" required>
-
-        <label for="status">Status:</label>
-        <select id="status" required>
-            <option value="active">Active</option>
-            <option value="inactive">Inactive</option>
-        </select>
-
-        <button type="submit" id="submitButton">Add Student</button>
-        <button type="button" id="cancelButton">Cancel</button>
-
-    </form>
-
-    <hr>
-
-    <!-- search student -->
-    <h2>Search Students</h2>
-
-    <input
-        type="text"
-        id="searchInput"
-        placeholder="Search by student number or name"
-    >
-
-    <button type="button" id="searchButton">Search</button>
-    <button type="button" id="resetButton">Show All</button>
-
-    <!-- record table -->
-    <h2>Student List</h2>
-
-    <table border="1">
-
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Student Number</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Birth Date</th>
-                <th>Course</th>
-                <th>Year Level</th>
-                <th>Status</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-
-        <tbody id="studentTableBody">
-        </tbody>
-
-    </table>
-
-    <!-- js script -->
-    <script src="script.js"></script>
-
+      <section id="records" class="content-card records-card" aria-labelledby="recordsTitle">
+        <div class="section-heading records-heading">
+          <div>
+            <p class="eyebrow">DIRECTORY</p>
+            <h2 id="recordsTitle">All students <span class="count-pill" id="recordCount">0</span></h2>
+          </div>
+          <form class="search-form" id="searchForm" role="search">
+            <label class="sr-only" for="searchInput">Search students</label>
+            <span aria-hidden="true">⌕</span>
+            <input id="searchInput" type="search" placeholder="Search name, number, or course">
+            <button class="button button-secondary" type="submit">Search</button>
+            <button class="button button-plain" type="button" id="resetButton">Clear</button>
+          </form>
+        </div>
+        <p id="pageMessage" class="message" role="status" aria-live="polite"></p>
+        <div class="table-wrap">
+          <table>
+          <thead><tr><th>STUDENT</th><th>STUDENT NUMBER</th><th>BIRTH DATE</th><th>COURSE</th><th>YEAR</th><th>STATUS</th><th class="actions-heading">ACTIONS</th></tr></thead>
+          <tbody id="studentTableBody"><tr><td class="table-placeholder" colspan="7">Loading student records…</td></tr></tbody>
+          </table>
+        </div>
+        <p class="table-footnote" id="tableFootnote">Student details are loaded from your project database.</p>
+      </section>
+      <footer class="page-footer">LarSo <span>·</span> Student Information System</footer>
+    </main>
+  </div>
+  <script src="script.js"></script>
 </body>
-
 </html>
